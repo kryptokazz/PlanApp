@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-from tkinter import *
+import customtkinter
 
 def credit():
     plan_cost = float(cost_entry.get())
@@ -20,34 +20,41 @@ def credit():
     formula_label.config(text=formula_text)
     difference_label.config(text=difference_text)
 
-root = Tk()
-root.geometry("400x250")
+root = customtkinter.CTk()
 
-cost_label = Label(root, text="Enter plan cost:")
+root.geometry("500x400")
+
+
+
+
+
+cost_label =   customtkinter.CTkLabel(root, text="Enter plan cost:", font=("Arial", 20), text_color="#FFCC70")
 cost_label.pack()
-cost_entry = Entry(root)
+
+cost_entry = customtkinter.CTkEntry(root)
 cost_entry.pack()
 
-start_label = Label(root, text="Enter start date (YYYY-MM-DD):")
+start_label = customtkinter.CTkLabel(root, text="Enter start date (YYYY-MM-DD):",  font=("Arial", 20), text_color="#FFCC70")
 start_label.pack()
-start_entry = Entry(root)
+
+start_entry = customtkinter.CTkEntry(root)
 start_entry.pack()
 
-end_label = Label(root, text="Enter end date (YYYY-MM-DD):")
+end_label = customtkinter.CTkLabel(root, text="Enter end date (YYYY-MM-DD):", font=("Arial", 20), text_color="#FFCC70" )
+
 end_label.pack()
-end_entry = Entry(root)
+end_entry = customtkinter.CTkEntry(root)
 end_entry.pack()
 
-calculate_button = Button(root, text="Calculate", command=credit)
+calculate_button = customtkinter.CTkButton(root, text="Calculate", command=credit, corner_radius=32, fg_color="#C850C0", hover_color="#4158D0", border_color="#FFCC70", border_width=4)
+
 calculate_button.pack()
 
-result_label = Label(root)
-result_label.pack()
 
-formula_label = Label(root, text="")
+formula_label = customtkinter.CTkLabel(root, text="")
 formula_label.pack()
 
-difference_label = Label(root, text="")
+difference_label = customtkinter.CTkLabel(root, text="")
 difference_label.pack()
 
 root.mainloop()
